@@ -15,51 +15,71 @@ var GSDisclosureButton = function () {
     var dsh = ".disclosureShowHide";
     
     // Private methods
+    var get_show_hide = function(button) {
+        retval = jQuery(button).parents(dw).find(dsh);
+        return retval;
+    }
+
     var buttonClicked = function () {
-        html = jQuery(this).html()
-        coreHTML = html.substring(2, html.length);
-        arrow = html.substring(0, 1);
-        showHideWidget = jQuery(this).parents(dw).find(dsh)
+        var button = jQuery(this);
+        var html = button.html();
+        var coreHTML = html.substring(2, html.length);
+        var arrow = html.substring(0, 1);
+        var showHide = get_show_hide(this);
+        var h = null;
         
         if ( arrow == hiddenArrow ) {
-            jQuery(this).html(shownArrow+" "+coreHTML);
+            button.html(shownArrow+" "+coreHTML);
+            h = 'false';
         } else {
-            jQuery(this).html(hiddenArrow+" "+coreHTML);
+            button.html(hiddenArrow+" "+coreHTML);
+            h = 'true';
         }
-        showHideWidget.slideToggle(speed);
+        showHide.slideToggle(speed).attr('aria-hidden', h);
     }
     
-    var show = function (button) {
-        var html = jQuery(this).html();
+    var show = function (b) {
+        var button = jQuery(this);
+        var html = button.html();
         var coreHTML = html.substring(2, html.length);
-        jQuery(this).html(shownArrow+" "+coreHTML);
-        
-        jQuery(this).parents(dw).find(dsh).slideDown(speed);
+        var showHide = get_show_hide(this);
+
+        button.html(shownArrow+" "+coreHTML);
+        showHide.slideDown(speed).attr('aria-hidden', 'true');
     }
 
     var hide = function (button) {
-        var html = jQuery(this).html();
+        var button = jQuery(this);
+        var html = button.html();
         var coreHTML = html.substring(2, html.length);
-        jQuery(this).html(hiddenArrow+" "+coreHTML);
+        var showHide = get_show_hide(this);
         
-        jQuery(this).parents(dw).find(dsh).slideUp(speed);
+        button.html(hiddenArrow+" "+coreHTML);
+        showHide.slideUp(speed).attr('aria-hidden', 'false');
     }
     
-    var prepare = function (button) {
+    var prepare = function (b) {
+        var showHide = null;
         var visible = false;
-        visible = jQuery(this).parents(dw).find(dsh).css('display') != 'none';
+        var button = null
+        showHide = get_show_hide(this);
+        visible = showHide.css('display') != 'none';
+        button = jQuery(this);
         if (visible) {
-          jQuery(this).prepend(shownArrow+" ");
+            button.prepend(shownArrow+" ");
+            showHide.attr('aria-hidden', 'false');
         } else {
-          jQuery(this).prepend(hiddenArrow+" ");
+            button.prepend(hiddenArrow+" ");
+            showHide.attr('aria-hidden', 'true');
         }
-        jQuery(this).removeAttr('href').css("cursor","pointer");
+        button.removeAttr('href').css("cursor","pointer")
+            .click( buttonClicked );
     }
     
     // Public methods and properties
     return {
         init: function () {
-            jQuery(db).each( prepare ).click( buttonClicked );
+            jQuery(db).each( prepare );
         },
         toggle_all: function() {
             jQuery(db).click();
@@ -74,4 +94,3 @@ var GSDisclosureButton = function () {
 }(); // GSDisclosureButton
 
 jQuery(window).load(GSDisclosureButton.init);
-
