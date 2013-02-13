@@ -1,59 +1,88 @@
 Introduction
 ============
 
-In general, A disclosure button is used to hide non-essential data from the
-user. Error messages, and collapsing-tree views of folders are two common
-examples. While their presentation may vary, the buttons are present in the
-widget sets used by Microsoft Windows, Apple Aqua, GNOME, and KDE.
-        
-In GroupServer, disclosure buttons are mostly used to hide the
+This product provides a JavaScript resource_ for implementing disclosure
+buttons. In general, A disclosure button is used to hide non-essential
+data from the user. Error messages, and collapsing-tree views of folders
+are two common examples. While their presentation may vary, the buttons are
+present in the widget sets used by Microsoft Windows, Apple Aqua, GNOME,
+and KDE.
+
+In GroupServer_, disclosure buttons are mostly used to hide the
 bottom-quoting and signatures at the end of posts. However, the system is
-generic, and can be used to hide arbitrary information.  If the correct
+generic, and can be used to hide arbitrary information. If the correct
 markup is followed, the JavaScript code will add the event-handlers to show
 or hide the information, as appropriate.
         
 In addition to the event handler, an arrow is added to each button, which
 indicates the state of the disclosure widget. The arrow points to the right
 when the information is hidden, and points down when the data is shown.
-        
+
+A disclosure button is created by adding some CSS classes to the markup_ of
+the page. JavaScript code can manipulate the buttons by calling various
+functions_.
+
+Resource
+========
+
+This product provides a JavaScript module as a Zope_ `browser
+resource`_. Any Zope or Plone_ project should be able to use this product
+as-is by placing the following line in a page template::
+
+  <script type="text/javascript" 
+          src="/++resource++gs-content-js-disclosure-20130113.js" 
+          defer="true"> </script>
+
+Users of other systems are invited to copy the file
+``gs/content/js/disclosure/browser/javascript/disclosure.js`` out of this
+product.
+
 Markup
 ======
             
-The markup for disclosure buttons mostly contains of two div elements, a
-paragraph, and an anchor::
+The markup for each disclosure button contains of a ``<div>`` element for
+the entire widget, a paragraph that contains a button, and another
+``<div>`` for the content to show or hide::
           
   <div class="disclosureWidget">
     <p>
-      <a class="disclosureButton">Foo</a>
+      <a class="disclosureButton" role="button" 
+         aria-controls="show-hide-id">Foo</a>
      </p>
-     <div class="disclosureShowHide" style="display: none;">
-          Foo bar wibble blarg&#8230;
+     <div id="show-hide-id" class="disclosureShowHide" style="display: none;">
+          This is hidden by default.
      </div>
   </div>
           
-Classes are used to mark the essential components of the disclosure widget:
+CSS classes are used to mark the components of the disclosure widget:
 
-* The main div, that contain the entire disclosure widget,
-* The button uses to show, or hide, the information, and
-* A div to hold the  information.
+* ``disclosureWidget`` for the main widget.
+* ``disclosureButton`` for the button.
+* ``disclosureShowHide`` for the content to show or hide.
 
-ID attributes can be added to the components of the disclosure widget, and
-additional callbacks can be added, to launch an AJAX query.
+The ``style`` attribute on the content determines if the content is shown
+(``display:block;``) or hidden (``display:none;``) by default.
+
+:Aria_: The markup above shows an ``aria-controls`` and ``role`` attribute
+       on the button; there is an ``id`` attribute on the content
+       container. All are good practice, but unnecessary (unless you rely
+       on accessibility technology, when they become highly important). The
+       system will add an ``aria-hidden`` attribute to the content
+       container as necessary
         
 Functions
 =========
-        
-``init``:
-  Add an arrow and a click-callback to all disclosure widgets. Launched
-  after the document is "ready".
 
-``show_all``:
+Three functions are provided by the ``GSDisclosureButton`` module to
+manipulate the disclosure buttons on the page.
+
+``GSDisclosureButton.show_all``:
   Show the contents of all the disclosure widgets.
 
-``hide_all``:
+``GSDisclosureButton.hide_all``:
   Hide the contents of all the disclosure widgets.
 
-``toggle_all``:
+``GSDisclosureButton.toggle_all``:
   Show the contents of all the hidden disclosure widgets, and hide the
   contents of all the shown disclosure widgets. (The 'click' event is sent
   to all the disclosure widgets.)
@@ -61,7 +90,7 @@ Functions
 Dependencies
 ============
 
-jQuery is used to implement the GroupServer disclosure button. However, the
+jQuery_ is used to implement the GroupServer disclosure button. However, the
 ``jQuery()`` call (rather than ``$()``) is used throughout, to avoid
 conflicts with Prototype.
 
@@ -73,5 +102,10 @@ Resources
 - Report bugs at https://redmine.iopen.net/projects/groupserver/
 
 .. _GroupServer: http://groupserver.org/
+.. _Zope: http://zope.org/
+.. _browser resource: http://docs.zope.org/zope.browserresource/
+.. _Plone: http://plone.org
+.. _Aria: http://www.w3.org/TR/wai-aria/
+.. _jQuery: http://jquery.com/
 
-..  LocalWords:  jQuery UI Plone
+.. LocalWords:  jQuery UI Plone
