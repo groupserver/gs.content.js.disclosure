@@ -73,7 +73,5 @@ var GSDisclosureButton = function () {
     };
 }(); // GSDisclosureButton
 
-jQuery(document).ready( function () {
-    GSDisclosureButton.init(); 
-});
+jQuery(window).load(GSDisclosureButton.init);
 
