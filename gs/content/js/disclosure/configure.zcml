@@ -7,5 +7,9 @@
     name="gs-content-js-disclosure-20130113.js"
     file="browser/javascript/disclosure.js"
     permission="zope2.Public" />
+  <browser:resource
+    name="gs-content-js-disclosure-min-20130113.js"
+    file="browser/javascript/disclosure-min.js"
+    permission="zope2.Public" />
 
 </configure>
