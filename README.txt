@@ -37,6 +37,13 @@ Users of other systems are invited to copy the file
 ``gs/content/js/disclosure/browser/javascript/disclosure.js`` out of this
 product.
 
+A minified version of the code is also available::
+
+  <script type="text/javascript" 
+          src="/++resource++gs-content-js-disclosure-min-20130113.js" 
+          defer="true"> </script>
+
+
 Markup
 ======
             
@@ -108,4 +115,4 @@ Resources
 .. _Aria: http://www.w3.org/TR/wai-aria/
 .. _jQuery: http://jquery.com/
 
-.. LocalWords:  jQuery UI Plone
+.. LocalWords:  jQuery UI Plone minified
