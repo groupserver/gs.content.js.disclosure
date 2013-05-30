@@ -1,4 +1,4 @@
-# coding=utf-8
+# -*- coding: utf-8 -*-
 import os
 from setuptools import setup, find_packages
 from version import get_version
@@ -33,7 +33,7 @@ setup(name='gs.content.js.disclosure',
     install_requires=[
         'setuptools',
         'zope.browserresource',
-        'gs.content.js.jquery',
+        'gs.content.js.jquery.base',
     ],
     entry_points="""
     # -*- Entry points: -*-
