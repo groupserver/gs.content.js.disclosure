@@ -1,3 +1,6 @@
+"use strict";
+// Disclosure widget support.
+//
 // Copyright © 2012, 2013, 2014 OnlineGroups.net and Contributors.
 // All Rights Reserved.
 //
