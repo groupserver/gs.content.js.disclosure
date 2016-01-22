@@ -13,7 +13,7 @@ Changelog
 .. _GitHub:
    https://github.com/groupserver/gs.content.js.disclosure
 .. _the documentation:
-   http://readthedocs.org/groupserver/projects/gscontentjsdisclosure
+   http://groupserver.readthedocs.org/projects/gscontentjsdisclosure
 
 1.2.0 (2014-03-13)
 ------------------

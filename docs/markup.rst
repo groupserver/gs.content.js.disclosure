@@ -67,5 +67,5 @@ default.
 .. _GroupServer: http://groupserver.org/
 .. _Zope: http://zope.org/
 .. _browser resource: http://docs.zope.org/zope.browserresource/
-.. _Plone: http://plone.org
+.. _Plone: https://plone.org
 .. _Aria: http://www.w3.org/TR/wai-aria/
