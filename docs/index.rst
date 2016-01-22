@@ -1,10 +1,6 @@
-============================
-``gs.content.js.disclosure``
-============================
-~~~~~~~~~~~~~~~~~~
-Disclosure buttons
-~~~~~~~~~~~~~~~~~~
-
+===============================
+:mod:`gs.content.js.disclosure`
+===============================
 :Author: `Michael JasonSmith`_
 :Contact: Michael JasonSmith <mpj17@onlinegroups.net>
 :Date: 2016-01-22
@@ -16,8 +12,15 @@ Disclosure buttons
 ..  _Creative Commons Attribution-Share Alike 4.0 International License:
     http://creativecommons.org/licenses/by-sa/4.0/
 
-Introduction
-============
+Contents:
+
+.. toctree::
+   :maxdepth: 2
+
+   markup
+   api
+   HISTORY
+
 
 This product provides a JavaScript resource for implementing
 disclosure buttons. In general, A disclosure button is used to
@@ -26,6 +29,29 @@ collapsing-tree views of folders are two common examples. While
 their presentation may vary, the buttons are present in the
 widget sets used by Microsoft Windows, Apple Aqua, GNOME, and
 KDE.
+
+In GroupServer_, disclosure buttons are mostly used to hide the
+bottom-quoting and signatures at the end of posts. However, the
+system is generic, and can be used to hide arbitrary
+information. If the correct markup is followed, the JavaScript
+code will add the event-handlers to show or hide the information,
+as appropriate.
+        
+In addition to the event handler, an arrow is added to each
+button, which indicates the state of the disclosure widget. The
+arrow points to the right when the information is hidden, and
+points down when the data is shown.
+
+A disclosure button is created by adding some CSS classes to the
+:doc:`markup <markup>` of the page. JavaScript code can manipulate the
+buttons by calling various :doc:`functions <api>`.
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
 
 Resources
 =========
@@ -40,5 +66,3 @@ Resources
 .. _GroupServer.org: http://groupserver.org/
 .. _OnlineGroups.Net: https://onlinegroups.net
 .. _Michael JasonSmith: http://groupserver.org/p/mpj17
-
-.. LocalWords:  jQuery UI Plone minified
