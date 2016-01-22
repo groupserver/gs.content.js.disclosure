@@ -14,6 +14,15 @@
            xmlns:browser="http://namespaces.zope.org/browser">
 
   <browser:resource
+    name="gs-content-js-disclosure-20160122.js"
+    file="browser/javascript/disclosure.js"
+    permission="zope2.Public" />
+  <browser:resource
+    name="gs-content-js-disclosure-min-20160122.js"
+    file="browser/javascript/disclosure-min.js"
+    permission="zope2.Public" />
+  <!--Old-->
+  <browser:resource
     name="gs-content-js-disclosure-20140313.js"
     file="browser/javascript/disclosure.js"
     permission="zope2.Public" />

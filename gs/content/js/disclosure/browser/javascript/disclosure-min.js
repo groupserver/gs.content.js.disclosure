@@ -1,11 +1,4 @@
-"use strict";jQuery.noConflict();function GSDisclosureButton(){var e="\u25b6",b="\u25bc",d="fast",a=".disclosureWidget",k=".disclosureButton",c=".disclosureShowHide";
-function i(m){var l=null;l=jQuery(m).parents(a).find(c);return l}function h(){var m=jQuery(this),l=m.html(),q=l.substring(2,l.length),o=l.substring(0,1),p=i(this),n=null;
-if(o==e){m.html(b+" "+q);n="false"}else{m.html(e+" "+q);n="true"}p.slideToggle(d).attr("aria-hidden",n)
-}function j(l){var n=null,m=null,p=null,o=null;n=jQuery(this);m=n.html();p=m.substring(2,m.length);
-o=i(this);n.html(b+" "+p);o.slideDown(d).attr("aria-hidden","true")}function f(l){var n=null,m=null,p=null,o=null;
-n=jQuery(this);m=n.html();p=m.substring(2,m.length);o=i(this);n.html(e+" "+p);o.slideUp(d).attr("aria-hidden","false")
-}function g(l){var o=null,n=false,m=null;o=i(this);n=o.css("display")!="none";m=jQuery(this);
-if(n){m.prepend(b+" ");o.attr("aria-hidden","false")}else{m.prepend(e+" ");o.attr("aria-hidden","true")
-}m.removeAttr("href").css("cursor","pointer").click(h)}return{init:function(){jQuery(k).each(g)
-},toggle_all:function(){jQuery(k).click()},show_all:function(){jQuery(k).each(j)},hide_all:function(){jQuery(k).each(f)
-}}}jQuery(window).load(function(){var a=null;a=GSDisclosureButton();a.init()});
+'use strict';jQuery.noConflict();
+function GSDisclosureButton(){function d(b){var a=null;return a=jQuery(b).parents(f).find(l)}function m(){var b=jQuery(this),a=b.html(),c=a.substring(2,a.length),a=a.substring(0,1),f=d(this),g=null;a==e?(b.html(h+" "+c),g="false"):(b.html(e+" "+c),g="true");f.slideToggle(k).attr("aria-hidden",g)}function n(b){var a=b=null,c=a=null;b=jQuery(this);a=b.html();a=a.substring(2,a.length);c=d(this);b.html(h+" "+a);c.slideDown(k).attr("aria-hidden","true")}function p(b){var a=b=null,c=a=null;b=jQuery(this);
+a=b.html();a=a.substring(2,a.length);c=d(this);b.html(e+" "+a);c.slideUp(k).attr("aria-hidden","false")}function q(b){b=null;var a=!1,c=null;b=d(this);a="none"!=b.css("display");c=jQuery(this);a?(c.prepend(h+" "),b.attr("aria-hidden","false")):(c.prepend(e+" "),b.attr("aria-hidden","true"));c.removeAttr("href").css("cursor","pointer").click(m)}var e="▶",h="▼",k="fast",f=".disclosureWidget",l=".disclosureShowHide";return{init:function(){jQuery(".disclosureButton").each(q)},toggle_all:function(){jQuery(".disclosureButton").click()},
+show_all:function(){jQuery(".disclosureButton").each(n)},hide_all:function(){jQuery(".disclosureButton").each(p)}}}jQuery(window).load(function(){var d=null,d=GSDisclosureButton();d.init()});
