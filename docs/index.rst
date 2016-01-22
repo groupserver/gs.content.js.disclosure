@@ -56,6 +56,8 @@ Indices and tables
 Resources
 =========
 
+- Documentation:
+  http://groupserver.readthedocs.org/projects/gscontentjsdisclosure/
 - Code repository:
   https://github.com/groupserver/gs.content.js.disclosure/
 - Questions and comments to

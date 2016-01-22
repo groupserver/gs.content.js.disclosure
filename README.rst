@@ -1,9 +1,6 @@
 ============================
 ``gs.content.js.disclosure``
 ============================
-~~~~~~~~~~~~~~~~~~
-Disclosure buttons
-~~~~~~~~~~~~~~~~~~
 
 :Author: `Michael JasonSmith`_
 :Contact: Michael JasonSmith <mpj17@onlinegroups.net>
@@ -20,7 +17,7 @@ Introduction
 ============
 
 This product provides a JavaScript resource for implementing
-disclosure buttons. In general, A disclosure button is used to
+*disclosure buttons.* In general, A disclosure button is used to
 hide non-essential data from the user. Error messages, and
 collapsing-tree views of folders are two common examples. While
 their presentation may vary, the buttons are present in the
@@ -30,6 +27,8 @@ KDE.
 Resources
 =========
 
+- Documentation:
+  http://groupserver.readthedocs.org/projects/gscontentjsdisclosure/
 - Code repository:
   https://github.com/groupserver/gs.content.js.disclosure/
 - Questions and comments to

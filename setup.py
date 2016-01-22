@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-# Copyright © 2014 OnlineGroups.net and Contributors.
+# Copyright © 2013, 2014, 2016 OnlineGroups.net and Contributors.
 # All Rights Reserved.
 #
 # This software is subject to the provisions of the Zope Public License,
@@ -16,9 +16,11 @@ import os
 from setuptools import setup, find_packages
 from version import get_version
 
+name = 'gs.content.js.disclosure'
 version = get_version()
 
-setup(name='gs.content.js.disclosure',
+setup(
+    name=name,
     version=version,
     description="JavaScript disclosure-button support.",
     long_description=open("README.rst").read() + "\n" +
@@ -30,7 +32,7 @@ setup(name='gs.content.js.disclosure',
         "Intended Audience :: Developers",
         'License :: OSI Approved :: Zope Public License',
         "Natural Language :: English",
-        "Operating System :: OS Independent"
+        "Operating System :: OS Independent",
         "Programming Language :: JavaScript",
         "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
         "Topic :: Software Development :: Libraries :: JavaScript Modules",
@@ -38,17 +40,20 @@ setup(name='gs.content.js.disclosure',
     keywords='javascript Loader jQuery disclosure widget',
     author='Michael JasonSmith',
     author_email='mpj17@onlinegroups.net',
-    url='http://groupserver.org/',
+    url='https://github.com/groupserver/{0}'.format(name),
     license='GPL',
     packages=find_packages(exclude=['ez_setup']),
-    namespace_packages=['gs','gs.content','gs.content.js'],
+    namespace_packages=['.'.join(name.split('.')[:i])
+                        for i in range(1, len(name.split('.')))],
     include_package_data=True,
     zip_safe=False,
     install_requires=[
         'setuptools',
         'gs.content.js.jquery.base',
     ],
-    extras_require={'zope': ['zope.browserresource', ]},
+    extras_require={
+        'zope': ['zope.browserresource', ]
+        'docs': ['Sphinx', ]},
     entry_points="""
     # -*- Entry points: -*-
     """,
