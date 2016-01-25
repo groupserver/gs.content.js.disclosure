@@ -19,12 +19,17 @@ from version import get_version
 name = 'gs.content.js.disclosure'
 version = get_version()
 
+with codecs.open('README.rst', encoding='utf-8') as f:
+    long_description = f.read()
+with codecs.open(os.path.join("docs", "HISTORY.rst"),
+                 encoding='utf-8') as f:
+    long_description += '\n' + f.read()
+
 setup(
     name=name,
     version=version,
     description="JavaScript disclosure-button support.",
-    long_description=open("README.rst").read() + "\n" +
-                      open(os.path.join("docs", "HISTORY.rst")).read(),
+    long_description=long_description,
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         "Environment :: Web Environment",
@@ -52,7 +57,7 @@ setup(
         'gs.content.js.jquery.base',
     ],
     extras_require={
-        'zope': ['zope.browserresource', ]
+        'zope': ['zope.browserresource', ],
         'docs': ['Sphinx', ]},
     entry_points="""
     # -*- Entry points: -*-
