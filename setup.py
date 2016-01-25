@@ -12,6 +12,7 @@
 # FOR A PARTICULAR PURPOSE.
 #
 ##############################################################################
+import codecs
 import os
 from setuptools import setup, find_packages
 from version import get_version
